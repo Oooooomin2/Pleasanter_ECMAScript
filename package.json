@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npm install -D webpack webpack-cli babel-loader @babel/core @babel/preset-env @babel/cli @babel/polyfill jquery",
+    "start": "npm install -D webpack webpack-cli babel-loader @babel/core @babel/preset-env @babel/cli @babel/polyfill jquery whatwg-fetch",
     "build": "webpack -w --config webpack.dev.config",
     "release": "webpack -w --config webpack.pro.config"
   },

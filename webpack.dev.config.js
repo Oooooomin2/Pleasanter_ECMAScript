@@ -6,7 +6,7 @@ module.exports = {
     ignored: /node_modules/
   },
   entry: {
-    index: ['@babel/polyfill', './src/index.js']
+    index: ['@babel/polyfill','whatwg-fetch', './src/index.js']
   },
   output: {
     path: __dirname + '/dist',

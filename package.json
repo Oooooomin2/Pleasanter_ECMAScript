@@ -12,5 +12,16 @@
     "release": "webpack -w --config webpack.pro.config"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "jquery": "^3.5.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "whatwg-fetch": "^3.5.0"
+  }
 }

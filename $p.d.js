@@ -1,213 +1,229 @@
-/*
-画面上の値変更と$p.dataへの格納を同時に行うことが出来るメソッドです。
-https://pleasanter.net/fs/publishes/523994/edit
-*/
-$p.set = ($control, val) => $p.set();
 
-/*
-AjaxのPOSTリクエストによる値のレコード取得が可能なメソッドです。
-https://pleasanter.net/fs/publishes/524012
-*/
-$p.apiGet = getRequest;
+const $p = {
+    /*
+    画面上の値変更と$p.dataへの格納を同時に行うことが出来るメソッドです。
+    https://pleasanter.net/fs/publishes/523994/edit
+    */
+    set: ($control, val) => $p.set($control, val),
+    /*
+    AjaxのPOSTリクエストによる値のレコード取得が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/524012
+    */
+    apiGet: getRequest,
+    /*
+    AjaxのPOSTリクエストによる新規レコードの作成が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/524072/edit
+    */
+    apiCreate: createRequest,
 
-/*
-AjaxのPOSTリクエストによる新規レコードの作成が可能なメソッドです。
-https://pleasanter.net/fs/publishes/524072/edit
-*/
-$p.apiCreate = createRequest;
+    /*
+    AjaxのPOSTリクエストによるレコード削除が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/524076/edit
+    */
+    apiUpdate: updateRequest,
 
-/*
-AjaxのPOSTリクエストによるレコード削除が可能なメソッドです。
-https://pleasanter.net/fs/publishes/524076/edit
-*/
-$p.apiUpdate = updateRequest;
+    /*
+    AjaxのPOSTリクエストによるレコード削除が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/524076
+    */
+    apiDelete: deleteRequest,
 
-/*
-AjaxのPOSTリクエストによるレコード削除が可能なメソッドです。
-https://pleasanter.net/fs/publishes/524076
-*/
-$p.apiDelete = deleteRequest;
+    /*
+    AjaxのPOSTリクエストによるユーザ取得が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/768085/edit
+    */
+    apiUsersGet: usersGetRequest,
 
-/*
-AjaxのPOSTリクエストによるユーザ取得が可能なメソッドです。
-https://pleasanter.net/fs/publishes/768085/edit
-*/
-$p.apiUsersGet = usersGetRequest;
+    /*
+    AjaxのPOSTリクエストによるユーザ作成が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/768207/edit
+    */
+    apiUsersCreate: usersCreateRequest,
 
-/*
-AjaxのPOSTリクエストによるユーザ作成が可能なメソッドです。
-https://pleasanter.net/fs/publishes/768207/edit
-*/
-$p.apiUsersCreate = usersCreateRequest;
+    /*
+    AjaxのPOSTリクエストによるユーザの更新が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/768263/edit
+    */
+    apiUsersUpdate: usersUpdateRequest,
 
-/*
-AjaxのPOSTリクエストによるユーザの更新が可能なメソッドです。
-https://pleasanter.net/fs/publishes/768263/edit
-*/
-$p.apiUsersUpdate = usersUpdateRequest;
+    /*
+    AjaxのPOSTリクエストによるユーザの削除が可能なメソッドです。
+    https://pleasanter.net/fs/publishes/768274/edit
+    */
+    apiUsersDelete: usersDeleteRequest,
 
-/*
-AjaxのPOSTリクエストによるユーザの削除が可能なメソッドです。
-https://pleasanter.net/fs/publishes/768274/edit
-*/
-$p.apiUsersDelete = usersDeleteRequest;
+    /*
+    AjaxのPOSTリクエストによるメールの送信が可能なメソッドです。
+    マニュアルは近日公開されるかと思います。
+    */
+    apiSendMail: sendMailRequest,
 
-/*
-AjaxのPOSTリクエストによるメールの送信が可能なメソッドです。
-マニュアルは近日公開されるかと思います。
-*/
-$p.apiSendMail = sendMailRequest;
+    /*
+    レコードのIdを表示します。
+    https://pleasanter.net/fs/publishes/523872/edit
+    */
+    id: () => $p.id(),
 
-/*
-レコードのIdを表示します。
-https://pleasanter.net/fs/publishes/523872/edit
-*/
-$p.id = () => $p.id();
+    /*
+    サーバにデータを送信するメソッドです。
+    マニュアルはいつか公開されるかと思います。
+    */
+    send: data => $p.send(data),
 
-/*
-サーバにデータを送信するメソッドです。
-マニュアルはいつか公開されるかと思います。
-*/
-$p.send = data => $p.send(data);
+    /*
+    サイトのidを表示します。
+    https://pleasanter.net/fs/publishes/524917/edit
+    */
+    siteId: () => $p.siteId(),
 
-/*
-サイトのidを表示します。
-https://pleasanter.net/fs/publishes/524917/edit
-*/
-$p.siteId = () => $p.siteId();
+    /*
+    対象項目のカラム名（データベースの列名）を取得するメソッドです。
+    https://pleasanter.net/fs/publishes/523992
+    */
+    getColumnName: name => $p.getColumnName(name),
 
-/*
-対象項目のカラム名（データベースの列名）を取得するメソッドです。
-https://pleasanter.net/fs/publishes/523992
-*/
-$p.getColumnName = name => $p.getColumnName(name);
+    /*
+    対象の項目名から要素を取得するメソッドです。
+    https://pleasanter.net/fs/publishes/523996/edit
+    */
+    getControl: labelName => $p.getControl(labelName),
 
-/*
-対象の項目名から要素を取得するメソッドです。
-https://pleasanter.net/fs/publishes/523996/edit
-*/
-$p.getControl = labelName => $p.getControl(labelName);
+    /*
+    対象の項目名からFieldを取得するメソッドです。
+    https://pleasanter.net/fs/publishes/617813/edit
+    */
+    getField: labelName => $p.getField(labelName),
 
-/*
-対象の項目名からFieldを取得するメソッドです。
-https://pleasanter.net/fs/publishes/617813/edit
-*/
-$p.getField = labelName => $p.getField(labelName);
+    /*
+    画面下に表示されるメッセージを削除することができるメソッドです。
+    https://pleasanter.net/fs/publishes/524707/edit
+    */
+    clearMessage: () => $p.clearMessage(),
 
-/*
-画面下に表示されるメッセージを削除することができるメソッドです。
-https://pleasanter.net/fs/publishes/524707/edit
-*/
-$p.clearMessage = () => $p.clearMessage();
+    /*
+    画面下にメッセージを表示させるメソッドです。
+    https://pleasanter.net/fs/publishes/524716
+    */
+    setMessage: (target, value) => $p.setMessage(target, value),
 
-/*
-画面下にメッセージを表示させるメソッドです。
-https://pleasanter.net/fs/publishes/524716
-*/
-$p.setMessage = (target, value) => $p.setMessage(target, value);
+    /*
+    ログインIdを取得するメソッドです。
+    https://pleasanter.net/fs/publishes/527928/edit
+    */
+    loginId: () => $p.loginId(),
 
-/*
-ログインIdを取得するメソッドです。
-https://pleasanter.net/fs/publishes/527928/edit
-*/
-$p.loginId = () => $p.loginId();
+    /*
+    ログインしているユーザのユーザIdを取得するメソッドです。
+    https://pleasanter.net/fs/publishes/527943/edit
+    */
+    userId: () => $p.userId(),
 
-/*
-ログインしているユーザのユーザIdを取得するメソッドです。
-https://pleasanter.net/fs/publishes/527943/edit
-*/
-$p.userId = () => $p.userId();
+    /*
+    ログインしているユーザの名前を取得するメソッドです。
+    https://pleasanter.net/fs/publishes/527948/edit
+    */
+    userName: () => $p.userName(),
 
-/*
-ログインしているユーザの名前を取得するメソッドです。
-https://pleasanter.net/fs/publishes/527948/edit
-*/
-$p.userName = () => $p.userName();
+    /*
+    テーブルの種類を取得するメソッドです。
+    マニュアルはいつか公開されるかと思います。
+    */
+    referenceType: () => $p.referenceType(),
 
-/*
-テーブルの種類を取得するメソッドです。
-マニュアルはいつか公開されるかと思います。
-*/
-$p.referenceType = () => $p.referenceType();
+    /*
+    一覧画面のtdタグの要素を取得するメソッドです。
+    https://pleasanter.net/fs/publishes/533695/edit
+    */
+    getGridCell: (id, name) => $p.getGridCell(id, name),
 
-/*
-一覧画面のtdタグの要素を取得するメソッドです。
-https://pleasanter.net/fs/publishes/533695/edit
-*/
-$p.getGridCell = (id, name) => $p.getGridCell(id, name);
+    /*
+    一覧画面にて、レコードの表示名のデータが何列目にあるか取得するメソッドです。
+    https://pleasanter.net/fs/publishes/533699/edit
+    */
+    getGridColumnIndex: name => $p.getGridColumnIndex(name),
 
-/*
-一覧画面にて、レコードの表示名のデータが何列目にあるか取得するメソッドです。
-https://pleasanter.net/fs/publishes/533699/edit
-*/
-$p.getGridColumnIndex = name => $p.getGridColumnIndex(name);
+    /*
+    一覧画面にて、レコードの表示名のデータが何列目にあるか取得するメソッドです。
+    https://pleasanter.net/fs/publishes/533714
+    */
+    getGridRow: id => $p.getGridRow(id),
 
-/*
-一覧画面にて、レコードの表示名のデータが何列目にあるか取得するメソッドです。
-https://pleasanter.net/fs/publishes/533714
-*/
-$p.getGridRow = id => $p.getGridRow(id);
+    events: {
+        /*
+        バリデーションチェックを行う前に実行するメソッドです。
+        https://pleasanter.net/fs/publishes/522549/edit
+        */
+        before_validate_Create: () => { },
+        before_validate_Update: () => { },
+        before_validate_Delete: () => { },
+        before_validate_BulkDelete: () => { },
+        before_validate_BulkUpdate: () => { },
 
-/*
-バリデーションチェックを行う前に実行するメソッドです。
-https://pleasanter.net/fs/publishes/522549/edit
-*/
-$p.events.before_validate_Create = () => { };
-$p.events.before_validate_Update = () => { };
-$p.events.before_validate_Delete = () => { };
+        /*
+        バリデーションチェックを行った後に実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523850/edit
+        */
+        after_validate_Create: () => { },
+        after_validate_Update: () => { },
+        after_validate_Delete: () => { },
+        after_validate_BulkDelete: () => { },
+        after_validate_BulkUpdate: () => { },
 
-/*
-バリデーションチェックを行った後に実行するメソッドです。
-https://pleasanter.net/fs/publishes/523850/edit
-*/
-$p.events.after_validate_Create = () => { };
-$p.events.after_validate_Update = () => { };
-$p.events.after_validate_Delete = () => { };
+        /*
+        サーバへデータを送信する前に実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523851/edit
+        */
+        before_send_Create: () => { },
+        before_send_Update: () => { },
+        before_send_Delete: () => { },
+        before_send_BulkDelete: () => { },
+        before_send_BulkUpdate: () => { },
 
-/*
-サーバへデータを送信する前に実行するメソッドです。
-https://pleasanter.net/fs/publishes/523851/edit
-*/
-$p.events.before_send_Create = () => { };
-$p.events.before_send_Update = () => { };
-$p.events.before_send_Delete = () => { };
+        /*
+        サーバへデータを送信した後に実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523852/edit
+        */
+        after_send_Create: () => { },
+        after_send_Update: () => { },
+        after_send_Delete: () => { },
+        after_send_BulkDelete: () => { },
+        after_send_BulkUpdate: () => { },
 
-/*
-サーバへデータを送信した後に実行するメソッドです。
-https://pleasanter.net/fs/publishes/523852/edit
-*/
-$p.events.after_send_Create = () => { };
-$p.events.after_send_Update = () => { };
-$p.events.after_send_Delete = () => { };
+        /*
+        サーバへデータを送信後、画面内容を更新する前に実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523853/edit
+        */
+        before_set_Create: () => { },
+        before_set_Update: () => { },
+        before_set_Delete: () => { },
+        before_set_BulkDelete: () => { },
+        before_set_BulkUpdate: () => { },
 
-/*
-サーバへデータを送信後、画面内容を更新する前に実行するメソッドです。
-https://pleasanter.net/fs/publishes/523853/edit
-*/
-$p.events.before_set_Create = () => { };
-$p.events.before_set_Update = () => { };
-$p.events.before_set_Delete = () => { };
+        /*
+        サーバへデータを送信後、画面内容を更新した後に実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523854/edit
+        */
+        after_set_Create: () => { },
+        after_set_Update: () => { },
+        after_set_Delete: () => { },
+        after_set_GridRows: () => { },
+        after_set_BulkDelete: () => { },
+        after_set_BulkUpdate: () => { },
 
-/*
-サーバへデータを送信後、画面内容を更新した後に実行するメソッドです。
-https://pleasanter.net/fs/publishes/523854/edit
-*/
-$p.events.after_set_Create = () => { };
-$p.events.after_set_Update = () => { };
-$p.events.after_set_Delete = () => { };
-$p.events.after_set_GridRows = () => { };
+        /*
+        編集画面を読み込んだときに実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523855/edit
+        */
+        on_editor_load: () => { },
 
-/*
-編集画面を読み込んだときに実行するメソッドです。
-https://pleasanter.net/fs/publishes/523855/edit
-*/
-$p.events.on_editor_load = () => { };
+        /*
+        一覧画面を読み込んだとき、もしくはフィルタ等で表示する内容が変わったときに実行するメソッドです。
+        https://pleasanter.net/fs/publishes/523861/edit
+        */
+        on_grid_load: () => { },
+    }
+}
 
-/*
-一覧画面を読み込んだとき、もしくはフィルタ等で表示する内容が変わったときに実行するメソッドです。
-https://pleasanter.net/fs/publishes/523861/edit
-*/
-$p.events.on_grid_load = () => { };
 
 const getRequest = ({
     async = true,
@@ -904,3 +920,74 @@ const Check = {
     CheckY: true,
     CheckZ: true
 };
+
+
+/* これより以下はサーバーサイドスクリプトの内容です。 */
+
+const context = {
+    FormStringRaw: () => { },
+    FormString: () => { },
+    Ajax: () => { },
+    //モバイルアクセスかどうかbool値を入力
+    Mobile: () => { },
+    ApplicationPath: () => { },
+    //返却されるURL
+    AbsoluteUri: () => { },
+    //返却されるApplicationPath以降のPath
+    AbsolutePath: () => { },
+    Url: () => { },
+    UrlReferrer: () => { },
+    Query: () => { },
+    //idがControllerのvalue値
+    Controller: () => { },
+    //idがActionのvalue値
+    Action: () => { },
+    TenantId: () => { },
+    SiteId: () => { },
+    Id: () => { },
+    Groups: () => { },
+    TenantTitle: () => { },
+    SiteTitle: () => { },
+    RecordTitle: () => { },
+    DeptId: () => { },
+    UserId: () => { },
+    LoginId: () => { },
+    Language: () => { },
+    TimeZoneInfo: () => { },
+    HasPrivilege: () => { },
+    ApiVersion: () => { },
+    ApiRequestBody: () => { },
+    RequestDataString: () => { },
+    ContentType: () => { },
+};
+
+const model = {
+    IssueId: () => {},
+    ResultId: () => {},
+    Creator:()=>{},
+    CreatedTime: () => {},
+    UpdatedTime: () => {},
+    Ver: () => {},
+    Title: () => {},
+    Body: () => {},
+    StartTime: () => {},
+    CompletionTime: () => {},
+    WorkValue: () => {},
+    ProgressRate: () => {},
+    RemainingWorkValue: () => {},
+    Status: () => {},
+    Manager: () => {},
+    Owner: () => {},
+    Comments: () => {},
+    Locked: () => {}
+}
+
+//APIの実装です。
+const items = {
+    Get: (id, json = dataOfGetRequest) => {},
+    New: () => {},
+    Create: (id, model = dataOfCreateAndUpdateRequest) =>{},
+    Update: (id, model = dataOfCreateAndUpdateRequest) => {},
+    Delete: (id = dataOfGetRequest) => {},
+    BulkDelete: (id, json = dataOfGetRequest) => {} 
+}
